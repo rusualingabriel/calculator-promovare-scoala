@@ -49,6 +49,7 @@ void start(int *max_note, int (*v)[101], int *note_introduse){
 void reset(int *max_note, int (*v)[101], int *note_introduse){
     for(int i = 0; i < (*max_note); i++)
         (*v)[i] = 1;
+    *note_introduse = 0;
 }
 
 void schimbare_nota_maxima(int *max_note, int (*v)[101], int *note_introduse){
