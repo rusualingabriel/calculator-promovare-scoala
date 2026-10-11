@@ -20,27 +20,29 @@ int main(){
 
 void start(int *max_note, int (*v)[101], int *note_introduse){
     int actiune;
-    std::cout << "------------------CALCULATOR PROMOVARE CLASA-------------------";
-    std::cout << "\nNumarul de note maxim(pentru a schimba introduce 1): " << *max_note;
-    std::cout << "\nIntrodu o nota noua(pentru a schimba introdu 2)";
-    std::cout << "\nNumarul de note introduse momentan(se reseteaza la schimbarea notelor maxime): " << *note_introduse;
-    std::cout << "\nCalculeaza(pentru a incepe introdu 3)";
-    std::cout << "\n";
-    std::cin >> actiune;
-    switch(actiune){
-        case 1:
-            schimbare_nota_maxima(max_note, v, note_introduse);
-            reset(max_note, v, note_introduse);
-            break;
-        case 2:
-            nota_noua(max_note, v, note_introduse);
-            break;
-        case 3:
-            calcul(max_note, v, note_introduse);
-            break;
-        default:
-            std::cout << "error";
-            break;
+    while(actiune != 3){
+        std::cout << "------------------CALCULATOR PROMOVARE CLASA-------------------";
+        std::cout << "\nNumarul de note maxim(pentru a schimba introduce 1): " << *max_note;
+        std::cout << "\nIntrodu o nota noua(pentru a schimba introdu 2)";
+        std::cout << "\nNumarul de note introduse momentan(se reseteaza la schimbarea notelor maxime): " << *note_introduse;
+        std::cout << "\nCalculeaza(pentru a incepe introdu 3)";
+        std::cout << "\n";
+        std::cin >> actiune;
+        switch(actiune){
+            case 1:
+                schimbare_nota_maxima(max_note, v, note_introduse);
+                reset(max_note, v, note_introduse);
+                break;
+            case 2:
+                nota_noua(max_note, v, note_introduse);
+                break;
+            case 3:
+                calcul(max_note, v, note_introduse);
+                break;
+            default:
+                std::cout << "error";
+                break;
+        }
     }
 }
 
@@ -55,7 +57,6 @@ void schimbare_nota_maxima(int *max_note, int (*v)[101], int *note_introduse){
     std::cin >> new_nota;
     *max_note = new_nota;
     system("cls");
-    start(max_note, v, note_introduse);
 }
 
 void calcul(int *max_note, int (*v)[101], int *note_introduse){
@@ -92,6 +93,6 @@ void nota_noua(int *max_note, int (*v)[101], int *note_introduse){
     (*v)[*note_introduse] = nota;
     (*note_introduse)++;
     system("cls");
-    start(max_note, v, note_introduse);
+
 }
 
